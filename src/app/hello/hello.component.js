@@ -1,16 +1,16 @@
 (function () {
     'use strict';
 
-    angular.module('app')
-        .component('hello', {
-            templateUrl: 'src/app/hello.html',
+    angular.module('app.hello')
+        .component('cdbHello', {
+            templateUrl: 'src/app/hello/hello.html',
             controller: HelloController
         });
 
     function HelloController($log) {
         // jshint validthis: true
         const vm = this;
-        vm.hello = 'Hello World!';
+        vm.hello = 'Hello my angular!';
         vm.$onInit = $onInit;
 
         function $onInit() {
