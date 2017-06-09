@@ -4,7 +4,10 @@
         'ngAnimate',
         'ui.router',
         'blocks',
-        'app.hello'
+        'ui.bootstrap',
+        'ui.bootstrap.fontawesome',
+        'app.hello',
+        'app.dashboard'
     ]);
 
 })();
