@@ -3,17 +3,31 @@
     angular.module('app.service').factory('dashboardService', Service);
 
     /* @ngInject */
-    function Service($http) {
-        var dataFactory = {};
-        let apiComputers= '/computers';
-        let apiCompagnies='/companies'
+    function Service($http, computerModel) {
+        let dataFactory = {};
+        let apiComputers = '/computers';
+        let apiCompagnies = '/companies';
 
         dataFactory.getComputers = function () {
-            return $http.get(env.api.URL +apiComputers);
+            $http.get(env.api.URL + apiComputers).then(function (response) {
+                let data = response.data.computers;
+                for (let i = 0; i < data.length; i++) {
+                    data[i] = computerModel.MapDTO(data[i]);
+                }
+                return response.data.computers = data;
+            });
         };
-        dataFactory.getPage = function (page,size) {
+        dataFactory.getPage = function (page, size) {
+           $http.get(env.api.URL + apiComputers + '?page=' + page + '&size=' + size).then(function (response) {
+               debugger;
+               let data = response.data.computers;
+               for (let i = 0; i < data.length; i++) {
+                   data[i] = computerModel.MapDTO(data[i]);
 
-            return $http.get(env.api.URL + apiComputers+ '?page='+ page + '&size='+ size);
+               }
+              response.data.computers = data;
+               return  response
+           });
         };
         dataFactory.insert = function () {
             return $http.post(env.api.URL + apiComputers);
