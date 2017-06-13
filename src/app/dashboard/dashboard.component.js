@@ -29,7 +29,7 @@
                 vm.data = response.data;
                 vm.size= response.size;
             }, function (error) {
-                $log.debug('Unable to load page data: ' + error.message);
+                $log.debug('Unable to load page : ' + error.message);
             });
         }
         function changeSize(pageSize) {

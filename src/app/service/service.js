@@ -9,24 +9,24 @@
         let apiCompagnies = '/companies';
 
         dataFactory.getComputers = function () {
-            $http.get(env.api.URL + apiComputers).then(function (response) {
-                let data = response.data.computers;
+            return $http.get(env.api.URL + apiComputers).then(function (response) {
+                let data = response.data.computersDTO;
                 for (let i = 0; i < data.length; i++) {
                     data[i] = computerModel.MapDTO(data[i]);
                 }
-                return response.data.computers = data;
+                return response.data.computersDTO = data;
             });
         };
         dataFactory.getPage = function (page, size) {
-           $http.get(env.api.URL + apiComputers + '?page=' + page + '&size=' + size).then(function (response) {
+           return $http.get(env.api.URL + apiComputers + '?page=' + page + '&size=' + size).then(function (response) {
                debugger;
-               let data = response.data.computers;
+               let data = response.data.computersDTO;
+
                for (let i = 0; i < data.length; i++) {
                    data[i] = computerModel.MapDTO(data[i]);
-
                }
-              response.data.computers = data;
-               return  response
+              response.data.computersDTO = data;
+               return  response ;
            });
         };
         dataFactory.insert = function () {

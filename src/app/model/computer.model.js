@@ -10,8 +10,12 @@
         var computerMap = {};
 
         computerMap.MapDTO = function (computerDTO) {
-            computerDTO.dateIn= new Date(computerDTO.dateIn).toLocaleDateString();
-            computerDTO.dateOut= new Date(computerDTO.dateOut).toLocaleDateString();
+            if (computerDTO.dateIn != null) {
+                computerDTO.dateIn = new Date(computerDTO.dateIn).toLocaleDateString();
+            }
+            if (computerDTO.dateOut != null) {
+                computerDTO.dateOut = new Date(computerDTO.dateOut).toLocaleDateString();
+            }
             return computerDTO;
 
         };
