@@ -3,6 +3,6 @@
  */
 (function() {
     'use strict';
-    angular.module('app.dashboard', ['angularUtils.directives.dirPagination','app.service']);
+    angular.module('app.dashboard', ['angularUtils.directives.dirPagination','app.service','pascalprecht.translate']);
 
 })();

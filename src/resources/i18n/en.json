@@ -1,0 +1,22 @@
+{
+  "title": "Computer-database",
+  "computerfound":" Computers found",
+  "add":"Add Computer",
+  "edit":"Edit",
+  "computer.name":"Computer name",
+  "computer.date.in":"Introduced date",
+  "computer.date.out":"Discontinued date",
+  "company.name":"Company",
+  "btn.next": "Suivant",
+  "btn.back": "Précedent",
+  "btn.search": "Filter by name",
+  "search.name":"Search name",
+  "btn.cancel": "Annuler",
+  "btn.save": "Sauvegardder",
+  "lbl.loading": "chargement",
+  "lbl.search": "rechercher",
+  "lbl.save": "sauvegarder",
+  "err.field-required": "ce champ est requis",
+  "err.field-date-required": "une date est requise",
+  "err.field-number-required": "un nombre est requis"
+}

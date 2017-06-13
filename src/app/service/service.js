@@ -19,7 +19,6 @@
         };
         dataFactory.getPage = function (page, size) {
            return $http.get(env.api.URL + apiComputers + '?page=' + page + '&size=' + size).then(function (response) {
-               debugger;
                let data = response.data.computersDTO;
 
                for (let i = 0; i < data.length; i++) {

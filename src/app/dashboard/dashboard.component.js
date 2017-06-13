@@ -11,31 +11,47 @@
         });
 
     /* @ngInject */
-    function DashboadController($log,dashboardService) {
+    function DashboadController($log, dashboardService, $translate) {
         // jshint validthis: true
         const vm = this;
         vm.data = [];
         vm.page = 1;
-        vm.pageSize=10;
-        vm.size=0;
+        vm.pageSize = 10;
+        vm.size = 0;
+        vm.language = 'fr';
         vm.$onInit = $onInit;
         vm.getComputers = getComputers;
         vm.changeSize = changeSize;
+        vm.changeLang = changeLang;
+        vm.isCurrent = isCurrent;
 
         getComputers(vm.page);
 
         function getComputers(page) {
-            dashboardService.getPage(page,vm.pageSize).then(function (response) {
+            dashboardService.getPage(page, vm.pageSize).then(function (response) {
                 vm.data = response.data;
-                vm.size= response.size;
+                vm.size = response.size;
             }, function (error) {
                 $log.debug('Unable to load page : ' + error.message);
             });
         }
+
         function changeSize(pageSize) {
-            vm.pageSize=pageSize;
+            vm.pageSize = pageSize;
             getComputers(1);
         }
+
+        function changeLang(language) {
+            $translate.use(language);
+
+        }
+
+        function isCurrent(language) {
+            return language === $translate.use();
+
+
+        }
+
         function $onInit() {
             $(".editMode").hide();
             $log.debug('DashboadController init');
