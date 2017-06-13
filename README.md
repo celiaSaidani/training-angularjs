@@ -189,7 +189,7 @@ Create a [service or a factory](https://docs.angularjs.org/guide/providers) that
 > Do not hard code the api uri within your source code. You could use an angular [value or constant](https://docs.angularjs.org/guide/providers) to hold the configuration.
 In javascript, there is no standard for switchable configuration like 'app.properties', but your gulp setup support this option : Just override `src/env/dev-conf.js` to define variables picked-up by `gulp serve`.
 
-- Naming convention apart, any idea why we name files `some.module.js`, `some.service.js` or `some.config.js` ?
+- Naming convention apart, any idea why we name files `some.module.js`, `some.computer.service.js` or `some.config.js` ?
 - Have you seen those `/* @ngInject */` all around source files?
 - Any way to prevent copy-pasting of `<header></header>` across `dashboard.html`, `editComputer.html` & `addComputer.html` ?
 - How to deal with boring url concatenation?

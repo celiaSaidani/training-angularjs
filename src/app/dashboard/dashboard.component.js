@@ -11,24 +11,24 @@
         });
 
     /* @ngInject */
-    function DashboadController($log, dashboardService, $translate) {
+    function DashboadController($log, computerService, $translate,$state) {
         // jshint validthis: true
         const vm = this;
         vm.data = [];
         vm.page = 1;
         vm.pageSize = 10;
         vm.size = 0;
-        vm.language = 'fr';
         vm.$onInit = $onInit;
         vm.getComputers = getComputers;
         vm.changeSize = changeSize;
         vm.changeLang = changeLang;
         vm.isCurrent = isCurrent;
+        vm.gotoAdd=gotoAdd;
 
         getComputers(vm.page);
 
         function getComputers(page) {
-            dashboardService.getPage(page, vm.pageSize).then(function (response) {
+            computerService.getPage(page, vm.pageSize).then(function (response) {
                 vm.data = response.data;
                 vm.size = response.size;
             }, function (error) {
@@ -49,8 +49,11 @@
         function isCurrent(language) {
             return language === $translate.use();
 
-
         }
+        function gotoAdd() {
+            $state.go('add');
+        }
+
 
         function $onInit() {
             $(".editMode").hide();

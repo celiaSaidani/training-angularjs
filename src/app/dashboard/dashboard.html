@@ -20,7 +20,7 @@
                 </form>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" id="addComputer" href="addComputer.html"> {{ 'add' | translate }}</a>
+                <a class="btn btn-success" id="addComputer" ng-click="$ctrl.gotoAdd()"> {{ 'add' | translate }}</a>
                 <a class="btn btn-default" id="editComputer" href="#" onclick="$.fn.toggleEditMode();">{{ 'edit' |
                     translate }}</a>
             </div>
@@ -69,7 +69,7 @@
             <tr dir-paginate="cp in $ctrl.data.computersDTO |itemsPerPage:$ctrl.pageSize"
                 total-items="$ctrl.data.totalcount">
                 <td>
-                    <a href="editComputer.html" onclick="">{{cp.nameComp}}</a>
+                    <a href="../edit/computer.html" onclick="">{{cp.nameComp}}</a>
                 </td>
                 <td>{{cp.dateIn}}</td>
                 <td>{{cp.dateOut}}</td>

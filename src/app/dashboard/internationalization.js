@@ -13,7 +13,7 @@
             });
 
             $translateProvider.preferredLanguage('fr');// is applied on first load
-
+            $translateProvider.useSanitizeValueStrategy('escape');
         };
 })();
 

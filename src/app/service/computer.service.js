@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('app.service').factory('dashboardService', Service);
+    angular.module('app.service').factory('computerService', Service);
 
     /* @ngInject */
     function Service($http, computerModel) {
@@ -28,8 +28,8 @@
                return  response ;
            });
         };
-        dataFactory.insert = function () {
-            return $http.post(env.api.URL + apiComputers);
+        dataFactory.insert = function (computerDTO) {
+            return $http.post(env.api.URL + apiComputers,computerDTO);
         };
         dataFactory.update = function () {
             return $http.put(env.api.URL + apiComputers);
