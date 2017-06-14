@@ -31,7 +31,9 @@
 
         function update(computer) {
             if(id != null){
-                computerService.insert(computer);
+                computerService.insert(computer), function (error) {
+                    $log.debug('Unable to insert computer : ' + error.message);
+                };
             }
             else{
                 $log.debug('Edit Computer');

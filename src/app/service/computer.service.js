@@ -6,7 +6,7 @@
     function Service($http, computerModel) {
         let dataFactory = {};
         let apiComputers = '/computers';
-        let apiCompagnies = '/companies';
+
 
         dataFactory.getComputers = function () {
             return $http.get(env.api.URL + apiComputers).then(function (response) {
@@ -18,18 +18,21 @@
             });
         };
         dataFactory.getPage = function (page, size) {
-           return $http.get(env.api.URL + apiComputers + '?page=' + page + '&size=' + size).then(function (response) {
-               let data = response.data.computersDTO;
+            return $http.get(env.api.URL + apiComputers + '?page=' + page + '&size=' + size).then(function (response) {
+                let data = response.data.computersDTO;
 
-               for (let i = 0; i < data.length; i++) {
-                   data[i] = computerModel.MapDTO(data[i]);
-               }
-              response.data.computersDTO = data;
-               return  response ;
-           });
+                for (let i = 0; i < data.length; i++) {
+                    data[i] = computerModel.MapDTO(data[i]);
+                }
+                response.data.computersDTO = data;
+                return response;
+            });
         };
         dataFactory.insert = function (computerDTO) {
-            return $http.post(env.api.URL + apiComputers,computerDTO);
+
+            computerDTO = computerModel.Map(computerDTO);
+
+            return $http.post(env.api.URL + apiComputers, computerDTO);
         };
         dataFactory.update = function () {
             return $http.put(env.api.URL + apiComputers);
